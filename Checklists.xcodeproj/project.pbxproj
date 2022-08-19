@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDC0261F28AF94CA00245197 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC0261E28AF94CA00245197 /* ChecklistItem.swift */; };
 		EDE271A928AE3BAE00E1B17F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE271A828AE3BAE00E1B17F /* AppDelegate.swift */; };
 		EDE271AB28AE3BAE00E1B17F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE271AA28AE3BAE00E1B17F /* SceneDelegate.swift */; };
 		EDE271AD28AE3BAE00E1B17F /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE271AC28AE3BAE00E1B17F /* ChecklistViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EDC0261E28AF94CA00245197 /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		EDE271A528AE3BAE00E1B17F /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDE271A828AE3BAE00E1B17F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDE271AA28AE3BAE00E1B17F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				EDE271B128AE3BB200E1B17F /* Assets.xcassets */,
 				EDE271B328AE3BB200E1B17F /* LaunchScreen.storyboard */,
 				EDE271B628AE3BB200E1B17F /* Info.plist */,
+				EDC0261E28AF94CA00245197 /* ChecklistItem.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				EDE271AD28AE3BAE00E1B17F /* ChecklistViewController.swift in Sources */,
 				EDE271A928AE3BAE00E1B17F /* AppDelegate.swift in Sources */,
 				EDE271AB28AE3BAE00E1B17F /* SceneDelegate.swift in Sources */,
+				EDC0261F28AF94CA00245197 /* ChecklistItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
