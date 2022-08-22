@@ -5,9 +5,17 @@
 //  Created by Кирилл Софрин on 22.08.2022.
 //
 
+
+protocol AddItemViewControllerDelegate: AnyObject {
+    func addItemViewControllerDidCancel(_ controller: AddItemViewController)
+    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem)
+}
+
 import UIKit
 
-class AddItemTableViewController: UITableViewController, UITextFieldDelegate {
+class AddItemViewController: UITableViewController, UITextFieldDelegate {
+    
+    weak var delegate: AddItemViewControllerDelegate?
     
     @IBOutlet weak var textField: UITextField!
     
@@ -24,12 +32,13 @@ class AddItemTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancel() {
-        navigationController?.popViewController(animated: true)
+        delegate?.addItemViewControllerDidCancel(self)
     }
     
     @IBAction func done() {
-        navigationController?.popViewController(animated: true)
-        print("contents of the text field: \(textField.text!)")
+        let item = ChecklistItem()
+        item.text = textField.text!
+        delegate?.addItemViewController(self, didFinishAdding: item)
     }
     
     // MARK: - Table View Delegates
