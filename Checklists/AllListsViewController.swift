@@ -110,5 +110,4 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         }
     }
     
-    
 }
