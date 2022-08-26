@@ -10,12 +10,17 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    var dataModel = DataModel()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let _ = (scene as? UIWindowScene) else { return }
+        let navigationController = window!.rootViewController as! UINavigationController
+        let controller = navigationController.viewControllers[0] as! AllListsViewController
+        controller.dataModel = dataModel
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
+        saveData()
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -28,6 +33,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        saveData()
+    }
+    
+    func saveData() {
+        dataModel.saveChecklists()
     }
 }
 
