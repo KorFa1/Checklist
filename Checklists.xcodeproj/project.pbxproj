@@ -51,6 +51,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED86D0E028B9180A00DFEC9B /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				ED86D0DE28B8DBD100DFEC9B /* DataModel.swift */,
+				EDC0261E28AF94CA00245197 /* ChecklistItem.swift */,
+				EDF477B828B627AE00F66D13 /* Checklist.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		ED86D0E128B9181C00DFEC9B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EDF477BA28B632EF00F66D13 /* ListDetailViewController.swift */,
+				EDA5B63428B374DF00D158D3 /* ItemDetailViewController.swift */,
+				EDE271AC28AE3BAE00E1B17F /* ChecklistViewController.swift */,
+				EDF477B628B6211A00F66D13 /* AllListsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		ED86D0E228B9182900DFEC9B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED86D0DC28B8C9CF00DFEC9B /* ExtraCode.swift */,
+				EDE271A828AE3BAE00E1B17F /* AppDelegate.swift */,
+				EDE271AA28AE3BAE00E1B17F /* SceneDelegate.swift */,
+				EDE271AE28AE3BAE00E1B17F /* Main.storyboard */,
+				EDE271B328AE3BB200E1B17F /* LaunchScreen.storyboard */,
+				EDE271B128AE3BB200E1B17F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		EDE2719C28AE3BAE00E1B17F = {
 			isa = PBXGroup;
 			children = (
@@ -70,20 +104,10 @@
 		EDE271A728AE3BAE00E1B17F /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
-				EDE271A828AE3BAE00E1B17F /* AppDelegate.swift */,
-				EDE271AA28AE3BAE00E1B17F /* SceneDelegate.swift */,
-				EDE271AE28AE3BAE00E1B17F /* Main.storyboard */,
-				EDE271B128AE3BB200E1B17F /* Assets.xcassets */,
-				EDE271B328AE3BB200E1B17F /* LaunchScreen.storyboard */,
+				ED86D0E128B9181C00DFEC9B /* View Controllers */,
+				ED86D0E028B9180A00DFEC9B /* Data Models */,
+				ED86D0E228B9182900DFEC9B /* Resources */,
 				EDE271B628AE3BB200E1B17F /* Info.plist */,
-				EDF477B828B627AE00F66D13 /* Checklist.swift */,
-				EDC0261E28AF94CA00245197 /* ChecklistItem.swift */,
-				EDF477B628B6211A00F66D13 /* AllListsViewController.swift */,
-				EDE271AC28AE3BAE00E1B17F /* ChecklistViewController.swift */,
-				EDF477BA28B632EF00F66D13 /* ListDetailViewController.swift */,
-				EDA5B63428B374DF00D158D3 /* ItemDetailViewController.swift */,
-				ED86D0DC28B8C9CF00DFEC9B /* ExtraCode.swift */,
-				ED86D0DE28B8DBD100DFEC9B /* DataModel.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
