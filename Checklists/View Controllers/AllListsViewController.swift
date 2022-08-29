@@ -48,30 +48,17 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         }
     }
     
+    // MARK: - View
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-//        var list = Checklist(name: "Birthdays")
-//        lists.append(list)
-//
-//        list = Checklist(name: "Groceries")
-//        lists.append(list)
-//
-//        list = Checklist(name: "Cool Apps")
-//        lists.append(list)
-//
-//        list = Checklist(name: "To Do")
-//        lists.append(list)
-//
-//        for list in lists {
-//            let item = ChecklistItem()
-//            item.text = "Item for \(list.name)"
-//            list.items.append(item)
-//        }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,10 +80,23 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        
+        let cell: UITableViewCell!
+        if let tmp = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) {
+            cell = tmp
+        } else {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        }
+        
         let checklist = dataModel.lists[indexPath.row]
         cell.textLabel!.text = checklist.name
         cell.accessoryType = .detailDisclosureButton
+        let count = checklist.countUncheckedItems()
+        if checklist.items.count == 0 {
+            cell.detailTextLabel!.text = "(No Items)"
+        } else {
+            cell.detailTextLabel!.text = count == 0 ? "All Done" : "\(count) Remaining"
+        }
         return cell
     }
     
