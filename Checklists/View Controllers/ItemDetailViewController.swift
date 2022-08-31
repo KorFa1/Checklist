@@ -13,6 +13,7 @@ protocol ItemDetailViewControllerDelegate: AnyObject {
 }
 
 import UIKit
+import UserNotifications
 
 class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     
@@ -24,6 +25,10 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     
     var itemToEdit: ChecklistItem?
     
+    @IBOutlet weak var shouldRemindSwitch: UISwitch!
+
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
@@ -31,6 +36,8 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             title = "Edit Item"
             textField.text = item.text
             doneBarButton.isEnabled = true
+            shouldRemindSwitch.isOn = item.shouldRemind
+            datePicker.date = item.dueDate
         }
     }
     
@@ -46,9 +53,15 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func done() {
         if let item = itemToEdit {
             item.text = textField.text!
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = datePicker.date
+            item.scheduleNotification()
             delegate?.itemDetailViewController(self, didFinishEditing: item)
         } else {
             let item = ChecklistItem(text: textField.text!)
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = datePicker.date
+            item.scheduleNotification()
             delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
     }
@@ -76,6 +89,19 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             doneBarButton.isEnabled = true
         }
         return true
+    }
+    
+    // MARK: - Notifications
+    
+    @IBAction func shouldRemindToggled(_ switchControl: UISwitch) {
+        textField.resignFirstResponder()
+        
+        if switchControl.isOn {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound]) {_, _ in
+                
+            }
+        }
     }
     
 }
